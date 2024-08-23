@@ -7,9 +7,9 @@ issue_tracker: https://github.com/verifyspeed/flutter_verifyspeed_plugin/issues
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=1.17.0"
+  flutter: ">=1.20.0"
 
-dependencies:
+dependences:
   flutter:
     sdk: flutter
   flutter_verifyspeed_plugin: ^0.0.1
