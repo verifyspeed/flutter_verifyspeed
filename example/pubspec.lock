@@ -85,12 +85,11 @@ packages:
   flutter_verifyspeed_plugin:
     dependency: transitive
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "905a0b417f2bc6c8b7b900cf69949823fb3231d4"
-      url: "https://github.com/verifyspeed/flutter_verifyspeed_plugin.git"
-    source: git
-    version: "0.0.1"
+      name: flutter_verifyspeed_plugin
+      sha256: "54b83231d085780751dc549b092283c23db2971f38e8221f7650bf279b526c86"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   leak_tracker:
     dependency: transitive
     description:
