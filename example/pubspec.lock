@@ -86,10 +86,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_verifyspeed_plugin
-      sha256: "54b83231d085780751dc549b092283c23db2971f38e8221f7650bf279b526c86"
+      sha256: "0b3630f2899e7259e5d5cff3c70902bf8a93a1ff838394e4731e3559ff037ed2"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   leak_tracker:
     dependency: transitive
     description:
@@ -227,10 +227,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: f652077d0bdf60abe4c1f6377448e8655008eef28f128bc023f7b5e8dfeb48fc
+      sha256: "5c5f338a667b4c644744b661f309fb8080bb94b18a7e91ef1dbd343bed00ed6d"
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.4"
+    version: "14.2.5"
 sdks:
   dart: ">=3.4.1 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"

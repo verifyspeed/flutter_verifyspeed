@@ -15,7 +15,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_verifyspeed_plugin: ^0.0.2
+  flutter_verifyspeed_plugin: ^0.0.3
 
 dev_dependencies:
   flutter_test:

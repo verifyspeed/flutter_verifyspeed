@@ -4,12 +4,10 @@ PODS:
     - Flutter
     - VerifySpeed_IOS_SDK (~> 1.0.3)
   - VerifySpeed_IOS_SDK (1.0.3)
-  - VerifySpeedIOSCode (1.0.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_verifyspeed_plugin (from `.symlinks/plugins/flutter_verifyspeed_plugin/ios`)
-  - "VerifySpeedIOSCode (from `git@github.com:RekanAnwar/VerifySpeed_IOS_Code.git`)"
 
 SPEC REPOS:
   trunk:
@@ -20,20 +18,12 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_verifyspeed_plugin:
     :path: ".symlinks/plugins/flutter_verifyspeed_plugin/ios"
-  VerifySpeedIOSCode:
-    :git: "git@github.com:RekanAnwar/VerifySpeed_IOS_Code.git"
-
-CHECKOUT OPTIONS:
-  VerifySpeedIOSCode:
-    :commit: cf02e0f878dd99bb689425edb1fc610ce9d31ffd
-    :git: "git@github.com:RekanAnwar/VerifySpeed_IOS_Code.git"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_verifyspeed_plugin: 727436ff4bac465d6456afe1f4735b99a09aed36
   VerifySpeed_IOS_SDK: 5542d40c7c9452801943522eebb3445270033a32
-  VerifySpeedIOSCode: 55eb9fcf9c09fa2423ce37c51c6bf0145be2fdd5
 
-PODFILE CHECKSUM: 736bc7685026c50b7636dda3b8438cf67de0c68f
+PODFILE CHECKSUM: 7be2f5f74864d463a8ad433546ed1de7e0f29aef
 
 COCOAPODS: 1.15.2

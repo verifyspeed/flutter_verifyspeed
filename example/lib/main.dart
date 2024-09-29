@@ -34,11 +34,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+
     customUIProcessor = VerifySpeed.instance.initializeCustomUIProcessor(
       clientKey: 'YOUR_CLIENT_KEY',
     );
-
-    WidgetsBinding.instance.addObserver(this);
   }
 
   @override
