@@ -13,3 +13,7 @@
 ## 0.0.4
 
 - Export VerifySpeedError
+
+## 0.0.4
+
+- Export VerifySpeedErrorType
