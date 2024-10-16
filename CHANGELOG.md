@@ -9,3 +9,7 @@
 ## 0.0.3
 
 - Improvement and bug fixes
+
+## 0.0.4
+
+- Export VerifySpeedError
