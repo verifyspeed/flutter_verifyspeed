@@ -81,15 +81,15 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.5"
+    version: "0.0.6"
   flutter_verifyspeed_plugin:
     dependency: transitive
     description:
       name: flutter_verifyspeed_plugin
-      sha256: beeb0255526af5e2182b3373e90b1dbfb0f8830cc1b432a12d2dd0dcb56463db
+      sha256: e4902a4ebb387d3467d4513e89731ded136e0c53d23a31cbdb8fc1dcbc2fde1b
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   leak_tracker:
     dependency: transitive
     description:
