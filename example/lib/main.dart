@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void initState() {
+    VerifySpeedError;
     super.initState();
     WidgetsBinding.instance.addObserver(this);
 
