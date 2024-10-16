@@ -14,6 +14,10 @@
 
 - Export VerifySpeedError
 
-## 0.0.4
+## 0.0.5
 
 - Export VerifySpeedErrorType
+
+## 0.0.6
+
+- Improvement and bug fixes
