@@ -29,3 +29,7 @@
 ## 0.0.8
 
 - Improvement and bug fixes
+
+## 0.0.9
+
+- Improvement and bug fixes
