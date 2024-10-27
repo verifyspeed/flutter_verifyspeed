@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -29,16 +28,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
-  late final CustomUIProcessor customUIProcessor;
+  late final DeepLinkProcessor customUIProcessor;
 
   @override
   void initState() {
-    VerifySpeedError;
     super.initState();
     WidgetsBinding.instance.addObserver(this);
 
-    customUIProcessor = VerifySpeed.instance.initializeCustomUIProcessor(
-      clientKey: 'YOUR_CLIENT_KEY',
+    customUIProcessor = VerifySpeed.instance.initializeDeepLinkProcessor(
+      redirectToStore: true,
     );
   }
 
@@ -56,22 +54,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     }
   }
 
-  Future<void> verifySpeedUI(BuildContext context) async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => VerifySpeedPage(
-          onSuccess: (token) {
-            log('token: $token');
-          },
-          onFailure: (error) {
-            log('Error on init: ${error.message}');
-          },
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,18 +64,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         child: Column(
           children: [
             ElevatedButton(
-              onPressed: () => verifySpeedUI(context),
-              child: const Text('verifySpeedUI'),
-            ),
-            ElevatedButton(
-              onPressed: () => customUIProcessor.start(
+              onPressed: () => customUIProcessor.verifyPhoneNumberWithDeepLink(
+                deepLink: 'deepLink',
+                verificationKey: 'verificationKey',
                 onSuccess: (token) {
                   log('onSucces: $token');
                 },
                 onFailure: (error) {
                   log('onFailure : ${error.message}');
                 },
-                type: VerifySpeedMethodType.telegram,
               ),
               child: const Text('startVerification'),
             ),
