@@ -33,3 +33,8 @@
 ## 0.0.9
 
 - Improvement and bug fixes
+
+## 0.0.10
+
+- Breaking change: Another way to verify phone number
+- Improvement and bug fixes
