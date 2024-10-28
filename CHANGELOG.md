@@ -38,3 +38,8 @@
 
 - Breaking change: Another way to verify phone number
 - Improvement and bug fixes
+
+## 0.0.11
+
+- Fix bug while validate otp in ios
+- Improvement and bug
