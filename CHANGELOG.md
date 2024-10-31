@@ -43,3 +43,7 @@
 
 - Fix bug while validate otp in ios
 - Improvement and bug
+
+## 0.0.12
+
+- Update documentation
