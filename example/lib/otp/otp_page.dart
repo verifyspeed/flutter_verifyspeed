@@ -82,7 +82,10 @@ class _OtpPageState extends State<OtpPage> {
     try {
       setState(() => isLoading = true);
 
+      //* TIP: Validate OTP (VERIFY OTP CODE)
       await widget.otpProcessor.validateOtp(
+        otpCode: codeController.text,
+        verificationKey: widget.verificationKey,
         onSuccess: (token) {
           Navigator.of(context)
             ..pop()
@@ -98,8 +101,6 @@ class _OtpPageState extends State<OtpPage> {
           log('error: ${error.message} type: ${error.type}');
           setState(() => isLoading = false);
         },
-        otpCode: codeController.text,
-        verificationKey: widget.verificationKey,
       );
     } catch (e) {
       log('error: $e');

@@ -146,8 +146,10 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
 
       final verificationKey = body['verificationKey'] as String;
 
+      //* TIP: Initialize OTP processor
       final otpProcessor = VerifySpeed.instance.initializeOtpProcessor();
 
+      //* TIP: Verify phone number with OTP (SEND OTP TO PHONE NUMBER)
       await otpProcessor.verifyPhoneNumberWithOtp(
         phoneNumber: '${selectedCountry!.dialCode}$phoneNumber',
         verificationKey: verificationKey,
@@ -160,6 +162,8 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
             builder: (context) => OtpPage(
               phoneNumber: '${selectedCountry!.dialCode}$phoneNumber',
               verificationKey: verificationKey,
+
+              //* TIP: Pass OTP processor to OTP page
               otpProcessor: otpProcessor,
             ),
           ),
