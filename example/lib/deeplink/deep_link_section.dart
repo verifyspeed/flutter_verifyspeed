@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_verifyspeed/flutter_verifyspeed.dart';
 import 'package:http/http.dart' as http;
 
-class DeepLinkPage extends StatefulWidget {
-  const DeepLinkPage({
+class DeepLinkSection extends StatefulWidget {
+  const DeepLinkSection({
     super.key,
     required this.methods,
   });
@@ -17,10 +17,10 @@ class DeepLinkPage extends StatefulWidget {
   final List<String> methods;
 
   @override
-  State<DeepLinkPage> createState() => _DeepLinkPageState();
+  State<DeepLinkSection> createState() => _DeepLinkSectionState();
 }
 
-class _DeepLinkPageState extends State<DeepLinkPage>
+class _DeepLinkSectionState extends State<DeepLinkSection>
     with WidgetsBindingObserver {
   //* TIP: Initialize the deep link processor
   late DeepLinkProcessor deepLinkProcessor;
@@ -106,28 +106,22 @@ class _DeepLinkPageState extends State<DeepLinkPage>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Deep Link Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: widget.methods
-              .map(
-                (e) => switch (e) {
-                  'telegram-message' => TelegramButton(
-                      onPressed: () => onStartVerification(e),
-                    ),
-                  'whatsapp-message' => WhatsappButton(
-                      onPressed: () => onStartVerification(e),
-                    ),
-                  _ => const SizedBox(),
-                },
-              )
-              .toList(),
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: widget.methods
+            .map(
+              (e) => switch (e) {
+                'telegram-message' => TelegramButton(
+                    onPressed: () => onStartVerification(e),
+                  ),
+                'whatsapp-message' => WhatsappButton(
+                    onPressed: () => onStartVerification(e),
+                  ),
+                _ => const SizedBox(),
+              },
+            )
+            .toList(),
       ),
     );
   }

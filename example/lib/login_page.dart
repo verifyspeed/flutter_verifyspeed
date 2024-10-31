@@ -1,6 +1,5 @@
-import 'package:example/buttons/sms_otp_button.dart';
-import 'package:example/deeplink/deep_link_page.dart';
-import 'package:example/otp/phone_number_page.dart';
+import 'package:example/deeplink/deep_link_section.dart';
+import 'package:example/otp/otp_section.dart';
 import 'package:example/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +12,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _authService = AuthService();
-  bool isDisplayDeepLinkButton = false;
-
-  static const _buttonSize = Size(300, 60);
-  static const _buttonTextStyle = TextStyle(fontSize: 20);
 
   @override
   Widget build(BuildContext context) {
@@ -69,64 +64,19 @@ class _LoginPageState extends State<LoginPage> {
           return const SizedBox();
         }
 
+        final data = snapshot.data!;
+
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: _buildMethodButtons(snapshot.data!),
-        );
-      },
-    );
-  }
+          children: [
+            // Handle Deep Link buttons
+            if (data.contains('telegram-message') ||
+                data.contains('whatsapp-message'))
+              DeepLinkSection(methods: data),
 
-  List<Widget> _buildMethodButtons(List<String> methods) {
-    final widgets = <Widget>[];
-
-    // Handle Deep Link button
-    if (methods
-            .any((m) => m == 'telegram-message' || m == 'whatsapp-message') &&
-        !isDisplayDeepLinkButton) {
-      widgets.add(_buildDeepLinkButton(methods));
-    }
-
-    // Handle SMS OTP button
-    if (methods.contains('sms-otp')) {
-      widgets.add(_buildSmsOtpButton());
-    }
-
-    return widgets;
-  }
-
-  Widget _buildDeepLinkButton(List<String> methods) {
-    return FilledButton(
-      onPressed: () {
-        setState(() => isDisplayDeepLinkButton = false);
-
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DeepLinkPage(methods: methods),
-          ),
-        );
-      },
-      style: FilledButton.styleFrom(
-        backgroundColor: Colors.black,
-        minimumSize: _buttonSize,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
-      ),
-      child: const Text('Deep Link', style: _buttonTextStyle),
-    );
-  }
-
-  Widget _buildSmsOtpButton() {
-    return SmsOtpButton(
-      onPressed: () {
-        setState(() => isDisplayDeepLinkButton = false);
-
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const PhoneNumberPage(),
-          ),
+            // Handle SMS OTP button
+            if (data.contains('sms-otp')) const OtpSection()
+          ],
         );
       },
     );
