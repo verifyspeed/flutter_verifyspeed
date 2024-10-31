@@ -75,6 +75,7 @@ class _DeepLinkPageState extends State<DeepLinkPage>
 
     final body = (jsonDecode(response.body) as Map);
 
+    //* TIP: Verify phone number with deep link
     await deepLinkProcessor.verifyPhoneNumberWithDeepLink(
       deepLink: body['deepLink'] as String,
       verificationKey: body['verificationKey'] as String,
