@@ -47,3 +47,8 @@
 ## 0.0.12
 
 - Update documentation
+
+## 0.0.13
+
+- Update Documentation
+- Improvement and bug fixes
