@@ -1,9 +1,23 @@
+import 'package:flutter_verifyspeed/src/models/models.dart';
 import 'package:flutter_verifyspeed_plugin/flutter_verifyspeed_plugin.dart';
 
 final class VerifySpeed {
-  VerifySpeed._();
+  const VerifySpeed._();
 
   static final VerifySpeed instance = VerifySpeed._();
+
+  void setClientKey(String clientKey) =>
+      VerifySpeedPlugin.instance.setClientKey(clientKey);
+
+  Future<VerifySpeedModel?> initialize() async {
+    final result = await VerifySpeedPlugin.instance.initialize();
+
+    if (result == null) return null;
+
+    final verifySpeedModel = VerifySpeedModel.fromJson(result);
+
+    return verifySpeedModel;
+  }
 
   DeepLinkProcessor initializeDeepLinkProcessor({
     bool redirectToStore = true,
