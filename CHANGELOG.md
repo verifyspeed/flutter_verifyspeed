@@ -56,3 +56,7 @@
 ## 0.0.14
 
 - Improvement and bug fixes
+
+## 0.0.15
+
+- Improvement and bug fixes
