@@ -32,8 +32,10 @@ final class VerifySpeed {
   }) =>
       VerifySpeedPlugin.instance.checkInterruptedSession(
         onSuccess: onSuccess,
-        onFailure: onFailure,
       );
+
+  Future<void> clearCachedSession() =>
+      VerifySpeedPlugin.instance.clearCachedSession();
 }
 
 final class DeepLinkProcessor {

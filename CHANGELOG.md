@@ -60,3 +60,8 @@
 ## 0.0.15
 
 - Improvement and bug fixes
+
+## 0.0.16
+
+- Improvement and bug fixes
+- Add a method to clear cached session
