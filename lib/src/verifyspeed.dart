@@ -28,7 +28,6 @@ final class VerifySpeed {
 
   Future<void> checkInterruptedSession({
     required void Function(String token) onSuccess,
-    required void Function(VerifySpeedError error) onFailure,
   }) =>
       VerifySpeedPlugin.instance.checkInterruptedSession(
         onSuccess: onSuccess,

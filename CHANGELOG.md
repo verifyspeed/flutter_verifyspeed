@@ -65,3 +65,7 @@
 
 - Improvement and bug fixes
 - Add a method to clear cached session
+
+## 0.0.17
+
+- Improvement and bug fixes
