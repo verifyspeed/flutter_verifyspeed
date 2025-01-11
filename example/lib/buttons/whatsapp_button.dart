@@ -4,10 +4,11 @@ class WhatsappButton extends StatelessWidget {
   const WhatsappButton({
     super.key,
     required this.onPressed,
+    this.text,
   });
 
   final void Function() onPressed;
-
+  final String? text;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,9 +22,9 @@ class WhatsappButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: const Text(
-          'Whatsapp',
-          style: TextStyle(fontSize: 20),
+        child: Text(
+          text ?? 'Whatsapp',
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );

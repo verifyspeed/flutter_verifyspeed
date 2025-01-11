@@ -4,9 +4,11 @@ class TelegramButton extends StatelessWidget {
   const TelegramButton({
     super.key,
     required this.onPressed,
+    this.text,
   });
 
   final void Function() onPressed;
+  final String? text;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,9 @@ class TelegramButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: const Text(
-          'Telegram',
-          style: TextStyle(fontSize: 20),
+        child: Text(
+          text ?? 'Telegram',
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );

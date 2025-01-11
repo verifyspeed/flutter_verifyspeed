@@ -12,7 +12,12 @@ import 'package:http/http.dart' as http;
 class PhoneNumberPage extends StatefulWidget {
   const PhoneNumberPage({
     super.key,
+    required this.methodName,
+    this.defaultCountryCode,
   });
+
+  final String methodName;
+  final String? defaultCountryCode;
 
   @override
   State<PhoneNumberPage> createState() => _PhoneNumberPageState();
@@ -29,10 +34,12 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
   @override
   void initState() {
     super.initState();
-    countryCodeController = TextEditingController(text: '+');
+    countryCodeController = TextEditingController();
     phoneNumberController = TextEditingController();
     countryCodeFocusNode = FocusNode();
     phoneNumberFocusNode = FocusNode();
+
+    _setDefaultCountryCode();
   }
 
   @override
@@ -42,6 +49,22 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
     countryCodeFocusNode.dispose();
     phoneNumberFocusNode.dispose();
     super.dispose();
+  }
+
+  void _setDefaultCountryCode() {
+    countryCodeController.text = widget.defaultCountryCode ?? '+';
+    final countries = CountryManager().countries;
+    final countryDataList = countries.where(
+      (element) => element.phoneCode
+          .startsWith(countryCodeController.text.replaceFirst('+', '')),
+    );
+    const countryCodePicker = FlCountryCodePicker();
+
+    final selectedCountry = countryCodePicker.countryCodes.firstWhere(
+      (element) => element.code == countryDataList.first.countryCode,
+    );
+
+    this.selectedCountry = selectedCountry;
   }
 
   void _unfocusFields() {
@@ -103,7 +126,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
     setState(() {});
   }
 
-  Future<void> _submit() async {
+  Future<void> _submit(String methodName) async {
     try {
       if (selectedCountry == null) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -122,16 +145,13 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
 
       setState(() => isLoading = true);
 
-      const url = 'YOUR_BASE_URL/YOUR_START_END_POINT';
+      const url = 'YOUR_API_ENDPOINT';
 
       final response = await http.post(
         Uri.parse(url),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(
-          {
-            'methodName': 'sms-otp',
-            'isWeb': false,
-          },
+          {'methodName': methodName},
         ),
       );
 
@@ -210,7 +230,10 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                     onCountryCodeChanged: _onCountryCodeChanged,
                   ),
                   const SizedBox(height: 30),
-                  SubmitButton(onPressed: _submit, isLoading: isLoading),
+                  SubmitButton(
+                    onPressed: () => _submit(widget.methodName),
+                    isLoading: isLoading,
+                  ),
                 ],
               ),
             ),
@@ -283,7 +306,6 @@ class PhoneNumberInput extends StatelessWidget {
               child: TextField(
                 onChanged: onCountryCodeChanged,
                 cursorColor: Colors.black,
-                autofocus: true,
                 controller: countryCodeController,
                 focusNode: countryCodeFocusNode,
                 keyboardType: TextInputType.phone,
@@ -334,6 +356,7 @@ class PhoneNumberInput extends StatelessWidget {
                 controller: phoneNumberController,
                 focusNode: phoneNumberFocusNode,
                 keyboardType: TextInputType.phone,
+                autofocus: true,
                 decoration: const InputDecoration(border: InputBorder.none),
               ),
             ),

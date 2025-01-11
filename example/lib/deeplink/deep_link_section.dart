@@ -11,10 +11,10 @@ import 'package:http/http.dart' as http;
 class DeepLinkSection extends StatefulWidget {
   const DeepLinkSection({
     super.key,
-    required this.methods,
+    required this.method,
   });
 
-  final List<String> methods;
+  final MethodModel method;
 
   @override
   State<DeepLinkSection> createState() => _DeepLinkSectionState();
@@ -52,10 +52,10 @@ class _DeepLinkSectionState extends State<DeepLinkSection>
     super.dispose();
   }
 
-  Future<void> onStartVerification(String methodName) async {
+  Future<void> onStartVerification(String? methodName) async {
     setState(() => isLoading = true);
 
-    const url = 'YOUR_BASE_URL/YOUR_START_END_POINT';
+    const url = 'YOUR_API_ENDPOINT';
 
     final response = await http.post(
       Uri.parse(url),
@@ -85,7 +85,6 @@ class _DeepLinkSectionState extends State<DeepLinkSection>
         });
         log('token: $token');
 
-        Navigator.pop(context);
         showPhoneNumberDialog(context, token);
       },
       onFailure: (error) {
@@ -106,23 +105,16 @@ class _DeepLinkSectionState extends State<DeepLinkSection>
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: widget.methods
-            .map(
-              (e) => switch (e) {
-                'telegram-message' => TelegramButton(
-                    onPressed: () => onStartVerification(e),
-                  ),
-                'whatsapp-message' => WhatsappButton(
-                    onPressed: () => onStartVerification(e),
-                  ),
-                _ => const SizedBox(),
-              },
-            )
-            .toList(),
-      ),
-    );
+    return switch (widget.method.methodName) {
+      'telegram-message' => TelegramButton(
+          onPressed: () => onStartVerification(widget.method.methodName),
+          text: widget.method.displayName,
+        ),
+      'whatsapp-message' => WhatsappButton(
+          onPressed: () => onStartVerification(widget.method.methodName),
+          text: widget.method.displayName,
+        ),
+      _ => const SizedBox(),
+    };
   }
 }

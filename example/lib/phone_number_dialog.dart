@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 Future<String>? getPhoneNumber(String token) async {
-  const url = 'YOUR_BASE_URL/YOUR_LOGIN_END_POINT';
+  const url = 'YOUR_API_ENDPOINT';
 
   final response = await http.post(
     Uri.parse(url),
     headers: {'Content-Type': 'application/json'},
-    body: jsonEncode({'verifySpeedToken': token}),
+    body: jsonEncode({'token': token}),
   );
 
   final phoneNumber = jsonDecode(response.body)['phoneNumber'];
@@ -19,8 +19,9 @@ Future<String>? getPhoneNumber(String token) async {
 
 void showPhoneNumberDialog(
   BuildContext context,
-  String token,
-) {
+  String token, {
+  bool isInterruptedSession = false,
+}) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
@@ -39,9 +40,11 @@ void showPhoneNumberDialog(
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
-                      'Verified phone number',
-                      style: TextStyle(fontSize: 26),
+                    Text(
+                      'Verified phone number ${isInterruptedSession ? 'from interrupted session' : ''}',
+                      style: TextStyle(
+                        fontSize: isInterruptedSession ? 20 : 26,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 30),

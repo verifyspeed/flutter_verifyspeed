@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         textSelectionTheme: TextSelectionThemeData(
           cursorColor: Colors.black,
-          selectionColor: Colors.black.withOpacity(0.4),
+          selectionColor: Colors.black.withValues(alpha: 0.4),
           selectionHandleColor: Colors.black,
         ),
       ),
