@@ -77,3 +77,7 @@
 ## 0.0.19
 
 - Update Dependencies
+
+## 0.0.20
+
+- Improvement and bug fixes

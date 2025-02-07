@@ -134,15 +134,15 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.19"
+    version: "0.0.20"
   flutter_verifyspeed_plugin:
     dependency: transitive
     description:
       name: flutter_verifyspeed_plugin
-      sha256: "7281d3dde515ff7bc613157f9cbff3ac249bfae906f4b9078e47ea7d0375d34f"
+      sha256: "6951ba535879b5e0f5de629c57526f64fc4a76493ce87aa155f2595651bcfe66"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.18"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -152,10 +152,10 @@ packages:
     dependency: "direct main"
     description:
       name: http
-      sha256: b9c29a161230ee03d3ccf545097fccd9b87a5264228c5d348202e0f0c28f9010
+      sha256: fe7ab022b76f3034adc518fb6ea04a82387620e19977665ea18d30a1cf43442f
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.2"
+    version: "1.3.0"
   http_parser:
     dependency: transitive
     description:
@@ -240,10 +240,10 @@ packages:
     dependency: "direct main"
     description:
       name: pinput
-      sha256: "7bf9aa7d0eeb3da9f7d49d2087c7bc7d36cd277d2e94cc31c6da52e1ebb048d0"
+      sha256: "8a73be426a91fefec90a7f130763ca39772d547e92f19a827cf4aa02e323d35a"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1"
   plugin_platform_interface:
     dependency: transitive
     description:
