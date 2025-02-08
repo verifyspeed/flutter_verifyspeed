@@ -81,3 +81,7 @@
 ## 0.0.20
 
 - Improvement and bug fixes
+
+## 0.0.21
+
+- Improvement and bug fixes

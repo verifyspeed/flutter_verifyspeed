@@ -134,15 +134,15 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.20"
+    version: "0.0.21"
   flutter_verifyspeed_plugin:
     dependency: transitive
     description:
       name: flutter_verifyspeed_plugin
-      sha256: "6951ba535879b5e0f5de629c57526f64fc4a76493ce87aa155f2595651bcfe66"
+      sha256: "0d4872791c9998d511ddc4fa5c9e2cb1c9ba322358d7d701d8b5fe87e901ecfc"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.18"
+    version: "0.0.19"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
