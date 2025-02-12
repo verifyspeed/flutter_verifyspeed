@@ -85,3 +85,8 @@
 ## 0.0.21
 
 - Improvement and bug fixes
+
+## 0.0.22
+
+- Improvement and bug fixes
+- Update minSdk to 24
