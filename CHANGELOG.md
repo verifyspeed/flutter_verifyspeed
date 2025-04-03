@@ -90,3 +90,8 @@
 
 - Improvement and bug fixes
 - Update minSdk to 24
+
+## 0.0.23
+
+- Update dependencies
+- Improvement and bug fixes
