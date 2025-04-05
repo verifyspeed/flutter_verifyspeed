@@ -176,7 +176,7 @@ class OtpInput extends StatelessWidget {
       autofocus: true,
       controller: codeController,
       onChanged: onCodeChanged,
-      length: 6,
+      length: 5,
     );
   }
 }
