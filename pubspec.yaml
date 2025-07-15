@@ -1,6 +1,6 @@
 name: flutter_verifyspeed
 description: Verifyspeed Flutter Package
-version: 0.0.23
+version: 0.0.24
 homepage: https://github.com/verifyspeed/flutter_verifyspeed
 repository: https://github.com/verifyspeed/flutter_verifyspeed
 issue_tracker: https://github.com/verifyspeed/flutter_verifyspeed_plugin/issues
@@ -15,7 +15,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_verifyspeed_plugin: ^0.0.21
+  flutter_verifyspeed_plugin: ^0.0.23
 
 dev_dependencies:
   flutter_test:
