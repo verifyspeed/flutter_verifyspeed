@@ -16,13 +16,17 @@ final class VerifySpeed {
   /// - methodName: Identifier used for verification
   /// - displayName: Human-readable name for the method
   Future<VerifySpeedModel?> initialize() async {
-    final result = await VerifySpeedPlugin.instance.initialize();
+    try {
+      final result = await VerifySpeedPlugin.instance.initialize();
 
-    if (result == null) return null;
+      if (result == null) return null;
 
-    final verifySpeedModel = VerifySpeedModel.fromJson(result);
+      final verifySpeedModel = VerifySpeedModel.fromJson(result);
 
-    return verifySpeedModel;
+      return verifySpeedModel;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   /// Initializes a processor for handling deep link verification with external apps (e.g. Telegram, WhatsApp).
@@ -46,10 +50,15 @@ final class VerifySpeed {
   /// session is recovered successfully.
   Future<void> checkInterruptedSession({
     required void Function(String token) onSuccess,
-  }) =>
-      VerifySpeedPlugin.instance.checkInterruptedSession(
+  }) async {
+    try {
+      await VerifySpeedPlugin.instance.checkInterruptedSession(
         onSuccess: onSuccess,
       );
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 final class DeepLinkProcessor {
@@ -80,8 +89,13 @@ final class DeepLinkProcessor {
   /// Notifies the system that the app has resumed after deep link verification.
   /// Must be called when the app resumes after the user completes verification
   /// in an external app to complete the verification process.
-  Future<void> notifyOnResumed() =>
-      VerifySpeedPlugin.instance.notifyOnResumed();
+  Future<void> notifyOnResumed() async {
+    try {
+      await VerifySpeedPlugin.instance.notifyOnResumed();
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 final class OtpProcessor {
@@ -94,48 +108,17 @@ final class OtpProcessor {
   /// [verificationKey] - Unique key provided by your backend
   ///
   /// Returns an OtpResponseModel with verification details or throws VerifySpeedError on failure.
-  Future<OtpResponseModel> verifyPhoneNumberWithOtp({
+  Future<void> verifyPhoneNumberWithOtp({
     required String phoneNumber,
     required String verificationKey,
   }) async {
-    final result = await VerifySpeedPlugin.instance.verifyPhoneNumberWithOtp(
-      phoneNumber: phoneNumber,
-      verificationKey: verificationKey,
-    );
-
     try {
-      final otpResponseModel = OtpResponseModel.fromJson(result);
-
-      return otpResponseModel;
-    } catch (e) {
-      throw VerifySpeedError(
-        "Failed to parse OTP response",
-        VerifySpeedErrorType.unknown,
+      await VerifySpeedPlugin.instance.verifyPhoneNumberWithOtp(
+        phoneNumber: phoneNumber,
+        verificationKey: verificationKey,
       );
-    }
-  }
-
-  /// Sends another OTP code when the previous one has expired.
-  ///
-  /// [verificationKey] - Verification key from the initial verification request
-  ///
-  /// Returns an OtpResponseModel with new verification details or throws VerifySpeedError on failure.
-  Future<OtpResponseModel> sendNextDynamicOtp({
-    required String verificationKey,
-  }) async {
-    final result = await VerifySpeedPlugin.instance.sendNextDynamicOtp(
-      verificationKey: verificationKey,
-    );
-
-    try {
-      final otpResponseModel = OtpResponseModel.fromJson(result);
-
-      return otpResponseModel;
     } catch (e) {
-      throw VerifySpeedError(
-        "Failed to parse OTP response",
-        VerifySpeedErrorType.unknown,
-      );
+      rethrow;
     }
   }
 

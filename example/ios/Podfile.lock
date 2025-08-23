@@ -1,29 +1,39 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_libphonenumber_ios (1.1.4):
+    - Flutter
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.8.0)
   - flutter_verifyspeed_plugin (1.0.0):
     - Flutter
-    - VerifySpeed_IOS_SDK (~> 1.0.3)
-  - VerifySpeed_IOS_SDK (1.0.3)
+    - VerifySpeed_IOS_SDK (~> 1.0.25)
+  - PhoneNumberKit/PhoneNumberKitCore (3.8.0)
+  - VerifySpeed_IOS_SDK (1.0.25)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - flutter_libphonenumber_ios (from `.symlinks/plugins/flutter_libphonenumber_ios/ios`)
   - flutter_verifyspeed_plugin (from `.symlinks/plugins/flutter_verifyspeed_plugin/ios`)
 
 SPEC REPOS:
   trunk:
+    - PhoneNumberKit
     - VerifySpeed_IOS_SDK
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  flutter_libphonenumber_ios:
+    :path: ".symlinks/plugins/flutter_libphonenumber_ios/ios"
   flutter_verifyspeed_plugin:
     :path: ".symlinks/plugins/flutter_verifyspeed_plugin/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_verifyspeed_plugin: 727436ff4bac465d6456afe1f4735b99a09aed36
-  VerifySpeed_IOS_SDK: 5542d40c7c9452801943522eebb3445270033a32
+  flutter_libphonenumber_ios: 5ad8620197bff91dd159d828b7544ec6956e86a1
+  flutter_verifyspeed_plugin: 8aeff36b23424f924aa7d8702511a42b3aaa4eff
+  PhoneNumberKit: ec00ab8cef5342c1dc49fadb99d23fa7e66cf0ef
+  VerifySpeed_IOS_SDK: 74c33476d35b459ca390a35bdec4606fc4df5627
 
 PODFILE CHECKSUM: 7be2f5f74864d463a8ad433546ed1de7e0f29aef
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

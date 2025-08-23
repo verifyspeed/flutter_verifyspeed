@@ -201,6 +201,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      appBar: AppBar(title: const Text('Login with OTP')),
       body: GestureDetector(
         onTap: _unfocusFields,
         child: ColoredBox(

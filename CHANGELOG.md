@@ -95,3 +95,8 @@
 
 - Update dependencies
 - Improvement and bug fixes
+
+## 0.0.25
+
+- BREAK CHANGES: Remove Dynamic OTP
+- Improvement and bug fixes

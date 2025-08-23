@@ -39,9 +39,11 @@ dependencies:
   flutter_verifyspeed:
     path: ../
   pinput: ^5.0.0
-  flutter_libphonenumber: ^2.5.0
+  flutter_libphonenumber: ^2.5.1
   fl_country_code_picker: ^0.1.9+1
-  sms_otp_auto_verify: ^2.2.0
+  sms_otp_auto_verify: 
+    git:
+      url: https://github.com/RekanAnwar/sms_otp_auto_verify.git
   collection: ^1.19.0
 
 

@@ -60,10 +60,7 @@ class _DeepLinkSectionState extends State<DeepLinkSection>
     final response = await http.post(
       Uri.parse(url),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({
-        'methodName': methodName,
-        'isWeb': false,
-      }),
+      body: jsonEncode({'methodName': methodName}),
     );
 
     if (response.statusCode != 200) {
