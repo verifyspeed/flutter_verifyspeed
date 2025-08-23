@@ -100,3 +100,8 @@
 
 - BREAK CHANGES: Remove Dynamic OTP
 - Improvement and bug fixes
+
+
+## 0.0.26
+
+- Update README file
