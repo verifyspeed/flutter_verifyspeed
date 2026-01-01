@@ -110,3 +110,8 @@
 
 - Update dependencies
 - Improvement and bug fixes
+
+## 0.0.28
+
+- Update dependencies
+- Improvement and bug fixes
