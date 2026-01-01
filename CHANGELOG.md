@@ -104,4 +104,9 @@
 
 ## 0.0.26
 
-- Update README file
+- Update README 
+
+## 0.0.27
+
+- Update dependencies
+- Improvement and bug fixes
